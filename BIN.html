@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULO BINARIO POR BY AGUSTIN G</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input, button, textarea, select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        #message-board {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>CALCULO BINARIO POR BY AGUSTIN G</h1>
+    <div class="container">
+        <h2>Convertidor Decimal-Binario</h2>
+        <input type="number" id="decimalInput" placeholder="Número decimal">
+        <button onclick="convertToBinary()">Convertir a Binario</button>
+        <input type="text" id="binaryResult" readonly placeholder="Resultado binario">
+
+        <input type="text" id="binaryInput" placeholder="Número binario">
+        <button onclick="convertToDecimal()">Convertir a Decimal</button>
+        <input type="number" id="decimalResult" readonly placeholder="Resultado decimal">
+
+        <h2>Cambiar color de fondo</h2>
+        <select id="colorSelect" onchange="changeBackgroundColor()">
+            <option value="#f0f0f0">Blanco</option>
+            <option value="#1a1a1a">Negro</option>
+            <option value="#2c3e50">Azul oscuro</option>
+            <option value="#3498db">Azul claro</option>
+            <option value="#e74c3c">Rojo</option>
+        </select>
+
+        <h2>Deja un mensaje</h2>
+        <textarea id="messageInput" placeholder="Escribe tu mensaje (máximo 200 palabras)" maxlength="200"></textarea>
+        <button onclick="addMessage()">Enviar mensaje</button>
+
+        <div id="message-board">
+            <h3>Mensajes de usuarios:</h3>
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+
+    <script>
+        function convertToBinary() {
+            const decimal = parseInt(document.getElementById("decimalInput").value);
+            if (!isNaN(decimal)) {
+                document.getElementById("binaryResult").value = decimal.toString(2);
+            } else {
+                alert("Te pegan en casa? no pusiste ningun numero");
+            }
+        }
+
+        function convertToDecimal() {
+            const binary = document.getElementById("binaryInput").value;
+            if (/^[01]+$/.test(binary)) {
+                document.getElementById("decimalResult").value = parseInt(binary, 2);
+            } else {
+                alert("Pone un numero PETE");
+            }
+        }
+
+        function changeBackgroundColor() {
+            const color = document.getElementById("colorSelect").value;
+            document.body.style.backgroundColor = color;
+        }
+
+        function addMessage() {
+            const message = document.getElementById("messageInput").value;
+            if (message.trim() === "") {
+                alert("No escribiste nada, aplicas la que te hace ella");
+                return;
+            }
+
+            const li = document.createElement("li");
+            li.textContent = message;
+            document.getElementById("messagesList").appendChild(li);
+            document.getElementById("messageInput").value = "";
+        }
+    </script>
+</body>
+</html>
