@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULO BINARIO POR BY AGUSTIN G</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CALCULO BINARIO POR BY AGUSTIN G</h1>
+        <p>Convierte entre números binarios y decimales y realiza operaciones básicas.</p>
+        
+        <!-- Selector de color de fondo -->
+        <div class="color-selector">
+            <label for="colorSelector">Selecciona el color de fondo:</label>
+            <select id="colorSelector" onchange="changeBackgroundColor()">
+                <option value="black">Negro</option>
+                <option value="darkblue">Azul oscuro</option>
+                <option value="white">Blanco</option>
+            </select>
+        </div>
+        
+        <!-- Conversor binario-decimal -->
+        <h2>Conversión entre binario y decimal</h2>
+        <div>
+            <label for="conversionType">Tipo de conversión:</label>
+            <select id="conversionType">
+                <option value="decimalToBinary">Decimal a Binario</option>
+                <option value="binaryToDecimal">Binario a Decimal</option>
+            </select>
+            <input type="text" id="conversionInput" placeholder="Ingresa un número">
+            <button onclick="convert()">Convertir</button>
+            <p id="conversionResult" class="result"></p>
+        </div>
+        
+        <!-- Operaciones binarias y decimales -->
+        <h2>Operaciones matemáticas</h2>
+        <div>
+            <label for="operationType">Selecciona el tipo de operación:</label>
+            <select id="operationType">
+                <option value="decimal">Decimal</option>
+                <option value="binary">Binario</option>
+            </select>
+            
+            <input type="text" id="num1" placeholder="Primer número">
+            <input type="text" id="num2" placeholder="Segundo número">
+            <select id="operation">
+                <option value="add">Sumar</option>
+                <option value="subtract">Restar</option>
+                <option value="multiply">Multiplicar</option>
+                <option value="divide">Dividir</option>
+            </select>
+            <button onclick="calculate()">Calcular</button>
+            <p id="calculationResult" class="result"></p>
+            <p id="calculationProcess" class="result"></p>
+        </div>
+
+        <!-- Sección de mensajes -->
+        <h2>Deja un mensaje</h2>
+        <textarea id="messageInput" rows="4" maxlength="200" placeholder="Escribe un mensaje (máximo 200 caracteres)"></textarea>
+        <button onclick="saveMessage()">Guardar mensaje</button>
+        <p id="savedMessage" class="result"></p>
+    </div>
+    
+    <footer>
+        <p>Creado por Agustín G - Página de práctica</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
